@@ -37,6 +37,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.nomedaempresa.quizatron.screen.AberturaScreen
 import com.nomedaempresa.quizatron.screen.PrimeiraPerguntaScreen
+import com.nomedaempresa.quizatron.screen.SegundaPerguntaScreen
+import com.nomedaempresa.quizatron.screen.TerceiraPerguntaScreen
+import com.nomedaempresa.quizatron.screen.resultadoScreen
 import com.nomedaempresa.quizatron.ui.theme.QuizatronTheme
 
 class MainActivity : ComponentActivity() {
@@ -50,7 +53,7 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = "Q1Screen",
+                        startDestination = "inicial",
                         exitTransition = {
                             slideOutOfContainer(
                                 towards = AnimatedContentTransitionScope
@@ -75,6 +78,7 @@ class MainActivity : ComponentActivity() {
                          },
 
                      ){ AberturaScreen (navController = navController) }
+
                      composable (
                          route = "Q1Screen",
                          enterTransition = {
@@ -85,6 +89,41 @@ class MainActivity : ComponentActivity() {
                              )
                          }
                      ){ PrimeiraPerguntaScreen (navController = navController) }
+
+                     composable (
+                            route = "Q2Screen",
+                            enterTransition = {
+                                slideIntoContainer(
+                                    towards = AnimatedContentTransitionScope
+                                        .SlideDirection.Up,
+                                    animationSpec = tween(3000)
+                                )
+                            }
+                        ){ SegundaPerguntaScreen (navController = navController) }
+
+                    composable (
+                        route = "Q3Screen",
+                        enterTransition = {
+                            slideIntoContainer(
+                                towards = AnimatedContentTransitionScope
+                                    .SlideDirection.Up,
+                                animationSpec = tween(3000)
+                            )
+                        }
+                    ){ TerceiraPerguntaScreen (navController = navController) }
+
+                    composable (
+                        route = "ResultadoScreen",
+                        enterTransition = {
+                            slideIntoContainer(
+                                towards = AnimatedContentTransitionScope
+                                    .SlideDirection.Up,
+                                animationSpec = tween(3000)
+                            )
+                        }
+                    ){ resultadoScreen (navController = navController) }
+
+
 
                     } // final do navhost
 
