@@ -14,6 +14,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,6 +32,9 @@ import com.nomedaempresa.quizatron.components.buttonOptionOne
 @Composable
 fun PrimeiraPerguntaScreen (navController: NavController) {
 
+//    var alternativaSelecionada by remember(
+//        mutableStateOf("")
+//    ) { }
 
     Box(
         modifier = Modifier
@@ -116,7 +121,8 @@ fun PrimeiraPerguntaScreen (navController: NavController) {
                     )
                     buttonOptionOne(
                         modifier = Modifier,
-                        onClick = { navController.navigate(route = "Q2Screen") },
+                        onClick = { navController.navigate(route = "Q2Screen")
+                                  },
                         text = "Pearch Jackson",
                         resposta = false
                     )
